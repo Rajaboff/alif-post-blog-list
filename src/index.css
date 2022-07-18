@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+    outline: none;
+    border: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: 0.1s all;
+}
+
+body {
+    background-color: rgb(247, 242, 234);
+}
+
+@media screen and (max-width: 1000px) {
+    .posts {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .posts {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .posts {
+        grid-template-columns: 1fr;
+    }
+}
