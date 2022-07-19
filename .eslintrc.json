@@ -18,7 +18,7 @@
         "react", "@typescript-eslint"
     ],
     "rules": {
-        "quotes": ["error", "double", "backtick"],
+        "quotes": ["error", "double"],
         "prettier/prettier": [
             "error", {
                 "endOfLine": "auto"

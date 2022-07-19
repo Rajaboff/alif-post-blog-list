@@ -6,6 +6,7 @@ import Search from "./components/Search";
 import { useGetPostsQuery } from "./redux";
 import ThemeContext, { themes } from "./theme-context";
 import Modal from "./components/Modal";
+import ThemeButton from "./components/ThemeButton";
 
 function App() {
   const [count, setCount] = useState(10);
@@ -46,6 +47,11 @@ function App() {
     setCurPost(curP);
   };
 
+  const changeTheme = (val: string) => {
+    setTheme(val);
+    console.log(val);
+  };
+
   if (isLoading) return <h1>Loading...</h1>;
 
   return (
@@ -53,18 +59,7 @@ function App() {
       <div className="p-[30px]">
         <div className="flex justify-between items-center mb-[40px]">
           <Search searching={searching} />
-          <button
-            className="ml-[25px]"
-            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-          >
-            <img
-              className="hover:scale-[1.15]"
-              src={`${process.env.PUBLIC_URL}/assets/${
-                theme === "light" ? "moon" : "sun"
-              }.svg`}
-              alt=""
-            />
-          </button>
+          <ThemeButton theme={theme} setTheme={changeTheme} />
         </div>
         <ul className="posts grid grid-cols-4 gap-[25px]">
           {currentData.map((item: any) => (
